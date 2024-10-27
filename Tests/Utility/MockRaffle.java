@@ -1,4 +1,4 @@
-package Test.Utility;
+package Tests.Utility;
 import src.interfaces.IRaffle;
 
 public class MockRaffle implements IRaffle{
