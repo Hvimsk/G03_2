@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class MockRaffle implements IRaffle{
     int currentIndOfListArray = 0;
     private final ArrayList<int[]> ListOfInputs;
-    MockRaffle(ArrayList<int[]> inputs){
+    public MockRaffle(ArrayList<int[]> inputs){
         ListOfInputs = inputs;
     }
 
