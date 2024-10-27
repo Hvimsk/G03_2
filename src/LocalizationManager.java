@@ -21,7 +21,7 @@ public class LocalizationManager {
     }
 
     private void loadBundle() {
-        resourceBundle = ResourceBundle.getBundle("messages", currentLocale);
+        resourceBundle = ResourceBundle.getBundle("src/resources/messages", currentLocale);
     }
 
     public String getString(String key) {
