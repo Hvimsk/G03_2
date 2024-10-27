@@ -16,7 +16,7 @@ class PlayerTest {
     @Test
     void setScore() {
         Player playerInstance = new Player(1);
-        int[] testScore = new int[]{5,5};
+        int testScore =  150;
         playerInstance.SetScore(testScore);
         int score = playerInstance.GetTotalScore();
         assertEquals(10, score);
