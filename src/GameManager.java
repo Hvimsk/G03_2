@@ -10,6 +10,8 @@ public class GameManager {
 
 
 
-    public void PlayGame() {
+    public Player PlayGame() {
+
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

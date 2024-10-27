@@ -1,4 +1,80 @@
 package Tests;
 
+import Tests.Utility.MockRaffle;
+import org.junit.jupiter.api.Test;
+import src.GameManager;
+import src.LocalizationManager;
+import src.Player;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class GameManagerTests {
+
+    @Test
+    public void player1Wins(){
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
+
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 1});// 1250
+            add(new int[]{1, 2});// 900
+            add(new int[]{1, 1});// 1500
+            add(new int[]{1, 2});// 800
+            add(new int[]{1, 1});// 1750
+            add(new int[]{1, 2});//  700
+            add(new int[]{1, 1});// 2000
+            add(new int[]{1, 2});// 600
+            add(new int[]{1, 1});// 2250
+            add(new int[]{1, 2});// 500
+            add(new int[]{1, 1});// 2500
+            add(new int[]{1, 2});// 400
+            add(new int[]{1, 1});// 2750
+            add(new int[]{1, 2});// 300
+            add(new int[]{1, 1});// 3000
+            add(new int[]{1, 2});// 200
+        }};
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle,lm);
+
+        Player playerWhoWon = sut.PlayGame();
+
+        assertEquals(1, playerWhoWon.playerPosition);
+
+
+    }
+    @Test
+    public void DoubleTurn(){
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
+
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 1});// 1250     player: 1
+            add(new int[]{1, 1});// 1250     player: 2
+            add(new int[]{1, 1});// 1500     player: 1
+            add(new int[]{1, 1});// 1500     player: 2
+            add(new int[]{1, 1});// 1750     player: 1
+            add(new int[]{1, 1});// 1750     player: 2
+            add(new int[]{1, 1});// 2000     player: 1
+            add(new int[]{1, 1});// 2000     player: 2
+            add(new int[]{1, 1});// 2250     player: 1
+            add(new int[]{1, 1});// 2250     player: 2
+            add(new int[]{1, 1});// 2500     player: 1
+            add(new int[]{1, 1});// 2500     player: 2
+            add(new int[]{1, 1});// 2750     player: 1
+            add(new int[]{1, 1});// 2750     player: 2
+            add(new int[]{5, 5});// 2670     player: 1        double turn
+            add(new int[]{6, 6});// 3330     player: 1
+        }};
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle,lm);
+
+        Player playerWhoWon = sut.PlayGame();
+
+        assertEquals(1, playerWhoWon.playerPosition);
+
+
+    }
 }
