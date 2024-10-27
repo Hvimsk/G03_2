@@ -1,8 +1,8 @@
-package src;
-
+package Test.Utility;
 import src.interfaces.IRaffle;
 
-public class Raffle implements IRaffle {
+public class MockRaffle implements IRaffle{
+
     @Override
     public void raffle() {
 
