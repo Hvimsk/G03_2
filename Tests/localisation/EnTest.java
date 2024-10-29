@@ -14,7 +14,7 @@ import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DKTests {
+public class EnTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -32,8 +32,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Tower() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 1});
@@ -49,8 +49,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Crater() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 2});
@@ -66,8 +66,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Palace_gates() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 3});
@@ -83,8 +83,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Cold_Desert() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 4});
@@ -100,8 +100,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Walled_city() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 5});
@@ -117,8 +117,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Monastery() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 6});
@@ -134,8 +134,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Black_cave() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{2, 6});
@@ -151,8 +151,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Huts_in_the_mountain() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{3, 6});
@@ -168,8 +168,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_The_Werewall() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{4, 6});
@@ -185,8 +185,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_The_pit() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{5, 6});
@@ -202,8 +202,8 @@ public class DKTests {
 
     @Test
     public void Test_Print_Goldmine() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{6, 6});
@@ -213,7 +213,6 @@ public class DKTests {
         var sut = new GameManager(TestingRaffle, lm);
 
         sut.PlayGame();
-
         assertEquals(lm.getString("LandingOnGoldmine"), outputStreamCaptor.toString().trim());
     }
 }
