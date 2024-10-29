@@ -14,9 +14,9 @@ class RaffleTest {
          */
     void raffle() {
 
-        Raffle sut = new Raffle();
+        Raffle raffle = new Raffle();
 
-        int[] DieValues = sut.RaffleDices();
+        int[] DieValues = raffle.RaffleDices();
 
         int lowerBound = 1;
         int upperBound = 6;
@@ -32,12 +32,12 @@ class RaffleTest {
          */
     void raffle1000Times() {
 
-        Raffle sut = new Raffle();
+        Raffle raffle = new Raffle();
 
         DistributionOfRolls utilityClass = new DistributionOfRolls();
 
         for (int i = 0; i < 1000; i++) {
-            int[] DieValues = sut.RaffleDices();
+            int[] DieValues = raffle.RaffleDices();
             utilityClass.addValue(DieValues[0]);
             utilityClass.addValue(DieValues[1]);
         }
