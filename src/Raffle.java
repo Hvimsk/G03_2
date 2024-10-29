@@ -1,10 +1,16 @@
 package src;
 
+import src.interfaces.IDie;
 import src.interfaces.IRaffle;
 
 public class Raffle implements IRaffle {
-    private final Die die1 = new Die();
-    private final Die die2 = new Die();
+    private final IDie die1;
+    private final IDie die2;
+
+    public Raffle(IDie die1, IDie die2) {
+        this.die1 = die1;
+        this.die2 = die2;
+    }
 
     /**
      * Raffle dices

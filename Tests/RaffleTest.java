@@ -2,7 +2,9 @@ package Tests;
 
 import Tests.Utility.DistributionOfRolls;
 import org.junit.jupiter.api.Test;
+import src.Die;
 import src.Raffle;
+import src.interfaces.IDie;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -13,8 +15,9 @@ class RaffleTest {
          * Test that our Dice are showing values within the expected range
          */
     void raffle() {
-
-        Raffle raffle = new Raffle();
+        IDie die1 = new Die();
+        IDie die2 = new Die();
+        Raffle raffle = new Raffle(die1, die2);
 
         int[] DieValues = raffle.RaffleDices();
 
@@ -31,8 +34,9 @@ class RaffleTest {
          * Test that our Dice are showing values within the expected range
          */
     void raffle1000Times() {
-
-        Raffle raffle = new Raffle();
+        IDie die1 = new Die();
+        IDie die2 = new Die();
+        Raffle raffle = new Raffle(die1, die2);
 
         DistributionOfRolls utilityClass = new DistributionOfRolls();
 
