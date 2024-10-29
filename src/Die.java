@@ -1,6 +1,8 @@
 package src;
 
-public class Die {
+import src.interfaces.IDie;
+
+public class Die implements IDie {
     private int faceValue;
     private void Shuffle(){
         int max = 6;
