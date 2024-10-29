@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RaffleTest {
 
+    /*
+     * Test that our Dice are showing values within the expected range
+     */
     @Test
-        /*
-         * Test that our Dice are showing values within the expected range
-         */
     void raffle() {
 
         Raffle sut = new Raffle();
@@ -26,10 +26,10 @@ class RaffleTest {
         }
     }
 
+    /*
+     * Test that our Dice are showing values within the expected range
+     */
     @Test
-        /*
-         * Test that our Dice are showing values within the expected range
-         */
     void raffle1000Times() {
 
         Raffle sut = new Raffle();
