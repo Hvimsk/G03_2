@@ -21,5 +21,4 @@ class PlayerTest {
         int score = playerInstance.GetTotalScore();
         assertEquals(10, score);
     }
-
 }
