@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class RaffleTest {
 
     @Test
-    /*
-     * Test that our Dice are showing values within the expected range
-     */
+        /*
+         * Test that our Dice are showing values within the expected range
+         */
     void raffle() {
 
         Raffle sut = new Raffle();
@@ -27,26 +27,25 @@ class RaffleTest {
     }
 
     @Test
-    /*
-     * Test that our Dice are showing values within the expected range
-     */
+        /*
+         * Test that our Dice are showing values within the expected range
+         */
     void raffle1000Times() {
 
         Raffle sut = new Raffle();
 
         DistributionOfRolls utilityClass = new DistributionOfRolls();
 
-        for (int i=0;i<1000;i++ ){
+        for (int i = 0; i < 1000; i++) {
             int[] DieValues = sut.RaffleDices();
             utilityClass.addValue(DieValues[0]);
             utilityClass.addValue(DieValues[1]);
         }
 
-        for (double PercentageDistribution : utilityClass.calculateDistribution()){
-            assertTrue(12<PercentageDistribution && PercentageDistribution<20);
+        for (double PercentageDistribution : utilityClass.calculateDistribution()) {
+            assertTrue(12 < PercentageDistribution && PercentageDistribution < 20);
         }
     }
-
 
 
 }

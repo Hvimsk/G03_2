@@ -20,20 +20,21 @@ class DieTest {
     }
 
     @Test
-    void Roll1000Times(){
+    void Roll1000Times() {
         Die individiulDie = new Die();
         DistributionOfRolls utilityClass = new DistributionOfRolls();
 
-        for (int i=0;i<1000;i++ ){
+        for (int i = 0; i < 1000; i++) {
             utilityClass.addValue(individiulDie.Roll());
         }
         double[] distributions = utilityClass.calculateDistribution();
 
-        for (double PercentageDistribution : distributions){
-            assertTrue(12<PercentageDistribution&& PercentageDistribution<20);
+        for (double PercentageDistribution : distributions) {
+            assertTrue(12 < PercentageDistribution && PercentageDistribution < 20);
 
         }
     }
+
     @Test
     void rollTime() {
         Die individiulDie = new Die();
@@ -45,7 +46,7 @@ class DieTest {
 
         long endTime = System.currentTimeMillis();
 
-        assertTrue(endTime-startTime < maxTime, "Time too roll die, took too long");
+        assertTrue(endTime - startTime < maxTime, "Time too roll die, took too long");
     }
 
 

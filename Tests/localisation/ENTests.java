@@ -15,201 +15,204 @@ import java.util.Locale;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ENTests {
-        private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        private final PrintStream originalOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
-        @BeforeEach
-        public void setUp() {
-            // Redirect System.out to outputStreamCaptor before each test
-            System.setOut(new PrintStream(outputStreamCaptor));
-        }
+    @BeforeEach
+    public void setUp() {
+        // Redirect System.out to outputStreamCaptor before each test
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
 
-        @AfterEach
-        public void tearDown() {
-            // Restore the original System.out after each test
-            System.setOut(originalOut);
-        }
+    @AfterEach
+    public void tearDown() {
+        // Restore the original System.out after each test
+        System.setOut(originalOut);
+    }
 
-        @Test
-        public void Test_Print_Tower(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+    @Test
+    public void Test_Print_Tower() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 1});
-            }};
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 1});
+        }};
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            sut.PlayGame();
+        sut.PlayGame();
 
-            assertEquals(lm.getString("LandingOnTower"), outputStreamCaptor.toString().trim());
-        }
+        assertEquals(lm.getString("LandingOnTower"), outputStreamCaptor.toString().trim());
+    }
 
-        @Test
-        public void Test_Print_Crater(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+    @Test
+    public void Test_Print_Crater() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 2});
-            }};
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 2});
+        }};
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            sut.PlayGame();
+        sut.PlayGame();
 
-            assertEquals(lm.getString("LandingOnCrater"), outputStreamCaptor.toString().trim());
-        }
+        assertEquals(lm.getString("LandingOnCrater"), outputStreamCaptor.toString().trim());
+    }
 
-        @Test
-        public void Test_Print_Palace_gates(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+    @Test
+    public void Test_Print_Palace_gates() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 3});
-            }};
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 3});
+        }};
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            sut.PlayGame();
+        sut.PlayGame();
 
-            assertEquals(lm.getString("LandingOnPalaceGates"), outputStreamCaptor.toString().trim());
-        }
-        @Test
-        public void Test_Print_Cold_Desert(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        assertEquals(lm.getString("LandingOnPalaceGates"), outputStreamCaptor.toString().trim());
+    }
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 4});
-            }};
+    @Test
+    public void Test_Print_Cold_Desert() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 4});
+        }};
 
-            sut.PlayGame();
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            assertEquals(lm.getString("LandingOnColdDesert"), outputStreamCaptor.toString().trim());
-        }
+        sut.PlayGame();
 
-        @Test
-        public void Test_Print_Walled_city(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        assertEquals(lm.getString("LandingOnColdDesert"), outputStreamCaptor.toString().trim());
+    }
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 5});
-            }};
+    @Test
+    public void Test_Print_Walled_city() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 5});
+        }};
 
-            sut.PlayGame();
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            assertEquals(lm.getString("LandingOnWalledCity"), outputStreamCaptor.toString().trim());
-        }
-        @Test
-        public void Test_Print_Monastery(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        sut.PlayGame();
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{1, 6});
-            }};
+        assertEquals(lm.getString("LandingOnWalledCity"), outputStreamCaptor.toString().trim());
+    }
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+    @Test
+    public void Test_Print_Monastery() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            sut.PlayGame();
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{1, 6});
+        }};
 
-            assertEquals(lm.getString("LandingOnMonastery"), outputStreamCaptor.toString().trim());
-        }
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-        @Test
-        public void Test_Print_Black_cave(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        sut.PlayGame();
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{2, 6});
-            }};
+        assertEquals(lm.getString("LandingOnMonastery"), outputStreamCaptor.toString().trim());
+    }
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+    @Test
+    public void Test_Print_Black_cave() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            sut.PlayGame();
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{2, 6});
+        }};
 
-            assertEquals(lm.getString("LandingOnBlackCave"), outputStreamCaptor.toString().trim());
-        }
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-        @Test
-        public void Test_Print_Huts_in_the_mountain (){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        sut.PlayGame();
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{3, 6});
-            }};
+        assertEquals(lm.getString("LandingOnBlackCave"), outputStreamCaptor.toString().trim());
+    }
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+    @Test
+    public void Test_Print_Huts_in_the_mountain() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            sut.PlayGame();
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{3, 6});
+        }};
 
-            assertEquals(lm.getString("LandingOnHutsInTheMountain"), outputStreamCaptor.toString().trim());
-        }
-        @Test
-        public void Test_Print_The_Werewall (){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{4, 6});
-            }};
+        sut.PlayGame();
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        assertEquals(lm.getString("LandingOnHutsInTheMountain"), outputStreamCaptor.toString().trim());
+    }
 
-            sut.PlayGame();
+    @Test
+    public void Test_Print_The_Werewall() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            assertEquals(lm.getString("LandingOnWerewall"), outputStreamCaptor.toString().trim());
-        }
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{4, 6});
+        }};
 
-        @Test
-        public void Test_Print_The_pit(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{5, 6});
-            }};
+        sut.PlayGame();
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        assertEquals(lm.getString("LandingOnWerewall"), outputStreamCaptor.toString().trim());
+    }
 
-            sut.PlayGame();
+    @Test
+    public void Test_Print_The_pit() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
 
-            assertEquals(lm.getString("LandingOnThePit"), outputStreamCaptor.toString().trim());
-        }
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{5, 6});
+        }};
 
-        @Test
-        public void Test_Print_Goldmine(){
-            Locale enLocale = new Locale("en", "US");
-            LocalizationManager lm = new LocalizationManager(enLocale);
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
 
-            ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-                add(new int[]{6, 6});
-            }};
+        sut.PlayGame();
 
-            var TestingRaffle = new MockRaffle(inputsToReachEvent);
-            var sut = new GameManager(TestingRaffle,lm);
+        assertEquals(lm.getString("LandingOnThePit"), outputStreamCaptor.toString().trim());
+    }
 
-            sut.PlayGame();
-            assertEquals(lm.getString("LandingOnGoldmine"), outputStreamCaptor.toString().trim());
-        }
+    @Test
+    public void Test_Print_Goldmine() {
+        Locale enLocale = new Locale("en", "US");
+        LocalizationManager lm = new LocalizationManager(enLocale);
+
+        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
+            add(new int[]{6, 6});
+        }};
+
+        var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameManager(TestingRaffle, lm);
+
+        sut.PlayGame();
+        assertEquals(lm.getString("LandingOnGoldmine"), outputStreamCaptor.toString().trim());
+    }
 }

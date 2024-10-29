@@ -1,12 +1,14 @@
 package Tests.Utility;
+
 import src.interfaces.IRaffle;
 
 import java.util.ArrayList;
 
-public class MockRaffle implements IRaffle{
-    int currentIndOfListArray = 0;
+public class MockRaffle implements IRaffle {
     private final ArrayList<int[]> ListOfInputs;
-    public MockRaffle(ArrayList<int[]> inputs){
+    int currentIndOfListArray = 0;
+
+    public MockRaffle(ArrayList<int[]> inputs) {
         ListOfInputs = inputs;
     }
 
