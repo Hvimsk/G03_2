@@ -6,7 +6,7 @@ public class Player {
 
     public Player(int i) {
         playerPosition = i;
-        this.account = new Account(this, 1000);
+        this.account = new Account(1000);
     }
 
     public int GetTotalScore() {
