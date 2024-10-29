@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GameManagerTests {
 
     @Test
-    public void player1Wins(){
+    public void player1Wins() {
         Locale enLocale = new Locale("en", "US");
         LocalizationManager lm = new LocalizationManager(enLocale);
 
@@ -37,14 +37,15 @@ public class GameManagerTests {
             add(new int[]{1, 2});// 200
         }};
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle,lm);
+        var sut = new GameManager(TestingRaffle, lm);
 
         Player playerWhoWon = sut.PlayGame();
 
         assertEquals(1, playerWhoWon.playerPosition);
     }
+
     @Test
-    public void DoubleTurn(){
+    public void DoubleTurn() {
         Locale enLocale = new Locale("en", "US");
         LocalizationManager lm = new LocalizationManager(enLocale);
 
@@ -67,7 +68,7 @@ public class GameManagerTests {
             add(new int[]{6, 6});// 3330     player: 1
         }};
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle,lm);
+        var sut = new GameManager(TestingRaffle, lm);
 
         Player playerWhoWon = sut.PlayGame();
 
@@ -75,7 +76,7 @@ public class GameManagerTests {
     }
 
     @Test
-    public void TestAllFields(){
+    public void TestAllFields() {
         Locale enLocale = new Locale("en", "US");
         LocalizationManager lm = new LocalizationManager(enLocale);
 
@@ -108,7 +109,7 @@ public class GameManagerTests {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle,lm);
+        var sut = new GameManager(TestingRaffle, lm);
 
         Player playerWhoWon = sut.PlayGame();
 
