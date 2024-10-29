@@ -10,7 +10,7 @@ public class Account {
     /**
      * Returns the balance of the account
      *
-     * @return balance
+     * @return int
      */
     public int getBalance() {
         return balance;
