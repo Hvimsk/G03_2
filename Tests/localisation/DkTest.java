@@ -5,7 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.GameManager;
+import src.GameStateManager;
 import src.LocalizationManager;
+import src.Player;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -15,36 +17,21 @@ import java.util.Locale;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DkTest {
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-
-    @BeforeEach
-    public void setUp() {
-        // Redirect System.out to outputStreamCaptor before each test
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
-
-    @AfterEach
-    public void tearDown() {
-        // Restore the original System.out after each test
-        System.setOut(originalOut);
-    }
 
     @Test
     public void Test_Print_Tower() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
 
         ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
             add(new int[]{1, 1});
         }};
-
+        Locale daLocale = new Locale("da", "DK");
+        LocalizationManager lm = new LocalizationManager(daLocale);
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnTower"), outputStreamCaptor.toString().trim());
+        assertEquals(lm.getString("LandingOnTower"), result);
     }
 
     @Test
@@ -56,12 +43,13 @@ public class DkTest {
             add(new int[]{1, 2});
         }};
 
+
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnCrater"), outputStreamCaptor.toString().trim());
+        assertEquals(lm.getString("LandingOnCrater"), result);
     }
 
     @Test
@@ -74,11 +62,12 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnPalaceGates"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnPalaceGates"), result);
     }
 
     @Test
@@ -91,11 +80,13 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnColdDesert"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnColdDesert"), result
+);
     }
 
     @Test
@@ -108,11 +99,12 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnWalledCity"), outputStreamCaptor.toString().trim());
+        assertEquals(lm.getString("LandingOnWalledCity"), result
+);
     }
 
     @Test
@@ -125,11 +117,13 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnMonastery"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnMonastery"), result
+);
     }
 
     @Test
@@ -142,11 +136,13 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnBlackCave"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnBlackCave"), result
+);
     }
 
     @Test
@@ -159,11 +155,13 @@ public class DkTest {
         }};
 
         var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnHutsInTheMountain"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnHutsInTheMountain"), result
+);
     }
 
     @Test
@@ -175,12 +173,14 @@ public class DkTest {
             add(new int[]{4, 6});
         }};
 
-        var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+       var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnWerewall"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnWerewall"), result
+);
     }
 
     @Test
@@ -192,12 +192,14 @@ public class DkTest {
             add(new int[]{5, 6});
         }};
 
-        var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+       var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnThePit"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnThePit"), result
+);
     }
 
     @Test
@@ -209,11 +211,13 @@ public class DkTest {
             add(new int[]{6, 6});
         }};
 
-        var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameManager(TestingRaffle, lm);
+       var TestingRaffle = new MockRaffle(inputsToReachEvent);
+        var sut = new GameStateManager(daLocale,TestingRaffle);
 
-        sut.PlayGame();
+        String result = sut.PlayOneTurn(new Player(0));
 
-        assertEquals(lm.getString("LandingOnGoldmine"), outputStreamCaptor.toString().trim());
+
+        assertEquals(lm.getString("LandingOnGoldmine"), result
+);
     }
 }
