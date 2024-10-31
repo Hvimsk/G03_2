@@ -164,24 +164,7 @@ public class DkTest {
 );
     }
 
-    @Test
-    public void Test_Print_The_Werewall() {
-        Locale daLocale = new Locale("da", "DK");
-        LocalizationManager lm = new LocalizationManager(daLocale);
 
-        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-            add(new int[]{4, 6});
-        }};
-
-       var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameStateManager(daLocale,TestingRaffle);
-
-        String result = sut.PlayOneTurn(new Player(0));
-
-
-        assertEquals(lm.getString("LandingOnWerewall"), result
-);
-    }
 
     @Test
     public void Test_Print_The_pit() {

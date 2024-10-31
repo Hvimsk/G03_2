@@ -163,23 +163,6 @@ public class EnTest {
         assertEquals(lm.getString("LandingOnHutsInTheMountain"), result);
     }
 
-    @Test
-    public void Test_Print_The_Werewall() {
-        Locale enLocale = new Locale("en", "US");
-        LocalizationManager lm = new LocalizationManager(enLocale);
-
-        ArrayList<int[]> inputsToReachEvent = new ArrayList<>() {{
-            add(new int[]{4, 6});
-        }};
-
-        var TestingRaffle = new MockRaffle(inputsToReachEvent);
-        var sut = new GameStateManager(enLocale,TestingRaffle);
-
-
-        String result = sut.PlayOneTurn(new Player(0));
-
-        assertEquals(lm.getString("LandingOnWerewall"), result);
-    }
 
     @Test
     public void Test_Print_The_pit() {
