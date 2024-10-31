@@ -59,7 +59,11 @@ public class GameStateManager {
             // Insert method to give extra turn, here
 
             player.account.withdraw(80);
+            System.out.println(localizationManager.getString("LandingOnWereWall"));
+            PlayOneTurn(player);
+            //unreachable
             return localizationManager.getString("LandingOnWereWall");
+
 
         } else if (faceValue[0] + faceValue[1] == 11) {
             player.account.withdraw(50);
