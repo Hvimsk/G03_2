@@ -16,7 +16,7 @@ public class GameStateManager {
 
 
 
-    public String PlayOneTurn(Player player, Account deposit, Account withdraw) {
+    public String PlayOneTurn(Player player) {
 
         LocalizationManager localizationManager = new LocalizationManager(locale);
         int[] faceValue = raffle.RaffleDices();
