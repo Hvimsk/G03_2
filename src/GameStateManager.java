@@ -71,7 +71,7 @@ public class GameStateManager {
 
         } else {
             // Empty field for the return thing
-            return "";
+            return ""; 
 
         }
     }
