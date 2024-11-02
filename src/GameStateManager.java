@@ -55,15 +55,8 @@ public class GameStateManager {
             return localizationManager.getString("LandingOnHutsInTheMountain");
 
         } else if (faceValue[0] + faceValue[1] == 10) {
-            // Insert method to give extra turn, here
-
             player.account.withdraw(80);
-            System.out.println(localizationManager.getString("LandingOnWereWall"));
-            PlayOneTurn(player);
-            //unreachable
-            return localizationManager.getString("LandingOnWereWall");
-
-
+            return "LandingOnWereWall";
         } else if (faceValue[0] + faceValue[1] == 11) {
             player.account.withdraw(50);
             return localizationManager.getString("LandingOnThePit");
