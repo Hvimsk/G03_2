@@ -27,4 +27,7 @@ public class LocalizationManager {
     public String getString(String key) {
         return resourceBundle.getString(key);
     }
+    public Locale getLocale(){
+        return this.currentLocale;
+    }
 }
