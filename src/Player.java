@@ -19,6 +19,9 @@ public class Player {
         return account.getBalance();
     }
 
+    public boolean hasPlayerWon(){
+        return account.getBalance() >= 3000;
+    }
     /**
      * sets the score of the account balance
      *
