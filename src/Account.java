@@ -32,6 +32,9 @@ public class Account {
      */
     public void withdraw(int amount) {
         balance -= amount;
+        if (balance < 0) {
+            balance = 0;
+        }
     }
 
     /**
