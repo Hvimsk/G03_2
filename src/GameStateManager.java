@@ -20,7 +20,6 @@ public class GameStateManager {
 
         LocalizationManager localizationManager = new LocalizationManager(locale);
         int[] faceValue = raffle.RaffleDices();
-        var diefaces = faceValue[0] + faceValue[1];
 
         // If statement that controls the game.
         if (faceValue[0] + faceValue[1] == 2) {
