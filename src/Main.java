@@ -14,7 +14,11 @@ public class Main {
         if (input == 2){
             Locale daLocale = new Locale("da", "DK");
             localizationManager = LocalizationManager.getInstance(daLocale);
-        }else{
+        }
+        else if (input == 1) {
+            Locale enLocale = new Locale("en", "US");
+            localizationManager = LocalizationManager.getInstance(enLocale);
+        } else{
             System.out.println("Invalid input");
         }
         Raffle ProductionRaffle = new Raffle(new Die(), new Die());
