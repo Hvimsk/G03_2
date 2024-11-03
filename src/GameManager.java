@@ -25,23 +25,30 @@ public class GameManager {
 
     public Player PlayGame() {
         int currentPlayer = 0;
-        while (true){
-            if (players.get(currentPlayer).hasPlayerWon()) {
-                return players.get(currentPlayer);
-            }
-            System.out.println("player [" + (currentPlayer+1) +"] Turn. Press any key to continue...");
-            var scanner = new Scanner(System.in);
-            var input = scanner.nextInt();
-            String current = gameStateManager.PlayOneTurn(players.get(currentPlayer));
-            if (current == "LandingOnWereWall"){
-                System.out.println(localizationManager.getString("LandingOnWereWall") + " BALANCE: [" + players.get(currentPlayer).account.getBalance()+"]");
-            }else {
-                System.out.println(current + " BALANCE: [" + players.get(currentPlayer).account.getBalance()+"]");
-                currentPlayer++;
-                if (currentPlayer >= players.size()) {
-                    currentPlayer = 0;
+        Scanner scanner = new Scanner(System.in);  // Initialize scanner once
+        try {
+            while (true) {
+                if (players.get(currentPlayer).hasPlayerWon()) {
+                    return players.get(currentPlayer);
+                }
+                System.out.println("player [" + (currentPlayer + 1) + "] Turn. Press any key to continue...");
+                int input = scanner.nextInt();  // Read input from existing scanner
+                String current = gameStateManager.PlayOneTurn(players.get(currentPlayer));
+
+                if ("LandingOnWereWall".equals(current)) {
+                    System.out.println(localizationManager.getString("LandingOnWereWall") +
+                            " BALANCE: [" + players.get(currentPlayer).account.getBalance() + "]");
+                } else {
+                    System.out.println(current +
+                            " BALANCE: [" + players.get(currentPlayer).account.getBalance() + "]");
+                    currentPlayer++;
+                    if (currentPlayer >= players.size()) {
+                        currentPlayer = 0;
+                    }
                 }
             }
+        } finally {
+            scanner.close();  // Ensure scanner is closed
         }
     }
 }
