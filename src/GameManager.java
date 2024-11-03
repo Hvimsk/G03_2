@@ -2,6 +2,7 @@ package src;
 
 import src.interfaces.IRaffle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,7 +33,13 @@ public class GameManager {
                     return players.get(currentPlayer);
                 }
                 System.out.println("player [" + (currentPlayer + 1) + "] Turn. Press any key to continue...");
-                int input = scanner.nextInt();  // Read input from existing scanner
+
+                try {
+                    System.in.read();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 String current = gameStateManager.PlayOneTurn(players.get(currentPlayer));
 
                 if ("LandingOnWereWall".equals(current)) {
